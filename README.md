@@ -61,22 +61,30 @@ This project contains:
     - Labs
     - Appointments
 - A gmail communication channel
-    - Dr is going to see laboratory calendar and verify available spaces
-    - Patient is going to pick what appointmen he wants
-    - An appointment confirmation approved by doctor a and received by patient as well.
-    Use cases - Can more than one dr use the app
-        Dr. He can schedule patient sessions, he can get access to available spaces
-        Dr. receive notification when he sucessfully book a lab appointment
-    Edge cases - Can more than one lab use the app
-        Laboratory can get access to list of patients
-        Laboratory receive notification when a new patient is schedule
-    Edge cases - Can more than one patient use the app
-        He can only received information regarding the next appointment
-    Edge cases - Any other account is not allowed
-        Even we can create a mechanism similar to fail2ban to ban users who tries to communicate with channel
+  
+    
 
 - In future versions sms or whatsapp channel with notifications periodically
 
+### Use cases 
+- Can more than one lab use the app?
+- Can more than one patient use the app?
+- Any other account is not allowed?
+- Can more than one dr use the app?
+
+  
+        
+
+### Authors
++ Laboratory can get access to list of patients
++ Laboratory receive notification when a new patient is schedule
++ Dr. He can schedule patient sessions, he can get access to available spaces
++ Dr. receive notification when he sucessfully book a lab appointment
++ Dr is going to see laboratory calendar and verify available spaces
++ Even we can create a mechanism similar to fail2ban to ban users who tries to communicate with channel
++ Patient is going to pick what appointmen he wants
++ He can only received information regarding the next appointment
++ An appointment confirmation approved by doctor and received by patient as well.
 
 ## TO-DO
 
