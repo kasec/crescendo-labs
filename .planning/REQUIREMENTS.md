@@ -185,15 +185,20 @@ The POC is considered successful when:
 
 ## Traceability Matrix
 
-| Requirement | Maps To PROJECT.md | Maps To Research |
-|-------------|-------------------|------------------|
-| E1-E5 (Email) | "Doctor can send email", "Patient receives confirmation" | FEATURES.md §2.2 |
-| B1-B5 (Booking) | "Agent checks lab availability", "Agent books appointment slot" | FEATURES.md §2.1, ARCHITECTURE.md §4 |
-| D1-D5 (Data) | "SQLite database stores appointments, doctors, labs" | STACK.md §2, ARCHITECTURE.md §5 |
-| A1-A6 (OpenClaw) | "OpenClaw runs in Docker container" | ARCHITECTURE.md §3 |
-| C1-C5 (Docker) | "Docker setup is deployable to VPS" | STACK.md §4, PITFALLS.md §6 |
-| S1-S5 (Security) | Guardrails section | PITFALLS.md §1-4 |
-| H1-H5 (Errors) | Error handling for failed email sends | PITFALLS.md §5, 11 |
+| Requirement | Maps To PROJECT.md | Maps To Research | Maps To Phase |
+|-------------|-------------------|------------------|---------------|
+| E1, E5 (Email infra) | "Doctor can send email" | FEATURES.md §2.2 | Phase 1 |
+| E2, E3, E4 (Email flow) | "Patient receives confirmation" | FEATURES.md §2.2 | Phase 3 |
+| B1, B2 (Capacity) | "Agent checks lab availability" | FEATURES.md §2.1 | Phase 2 |
+| B3, B4, B5 (Booking) | "Agent books appointment slot" | FEATURES.md §2.1, ARCHITECTURE.md §4 | Phase 3 |
+| D1-D5 (Data) | "SQLite database stores appointments, doctors, labs" | STACK.md §2, ARCHITECTURE.md §5 | Phase 2 |
+| A1 (Gateway) | "OpenClaw runs in Docker container" | ARCHITECTURE.md §3 | Phase 1 |
+| A2, A3, A6 (Skills) | "OpenClaw agent logic" | ARCHITECTURE.md §3 | Phase 2 |
+| A4, A5 (Booking flow) | "OpenClaw agent logic" | ARCHITECTURE.md §3 | Phase 3 |
+| C1-C5 (Docker) | "Docker setup is deployable to VPS" | STACK.md §4, PITFALLS.md §6 | Phase 4 |
+| S1, S2, S4, S5 (Security) | Guardrails section | PITFALLS.md §1-4 | Phase 1 |
+| S3 (Docker security) | Guardrails section | PITFALLS.md §6 | Phase 4 |
+| H1-H5 (Errors) | Error handling for failed email sends | PITFALLS.md §5, 11 | Phase 3 |
 
 ---
 
@@ -234,4 +239,4 @@ Notes: [Any special requirements, e.g., "Fasting required"]
 ---
 
 *Last updated: March 23, 2026*
-*Status: Ready for roadmap creation*
+*Status: Roadmap created — ready for phase planning*
