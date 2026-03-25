@@ -1,0 +1,16 @@
+{
+  "name": "crescendo-labs-presentation",
+  "private": true,
+  "devDependencies": {
+    "@slidev/cli": "^52.14.1"
+  },
+  "scripts": {
+    "dev": "slidev slides.md",
+    "build": "slidev build slides.md",
+    "export": "slidev export slides.md",
+    "preview": "slidev preview slides.md"
+  },
+  "dependencies": {
+    "@slidev/theme-default": "^0.25.0"
+  }
+}
