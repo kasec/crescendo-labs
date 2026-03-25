@@ -1,0 +1,18 @@
+{
+  "name": "slot-manager",
+  "version": "1.0.0",
+  "description": "Manages lab appointment slot availability and reservations",
+  "author": "IMSS Lab Bot Team",
+  "license": "MIT",
+  "main": "index.js",
+  "entryPoint": "manageSlots",
+  "config": {
+    "database_path": "./data/sqlite.db",
+    "max_slots_per_hour": 20,
+    "operating_hours": {
+      "start": 9,
+      "end": 17
+    },
+    "operating_days": [1, 2, 3, 4, 5]
+  }
+}

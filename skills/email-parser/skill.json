@@ -1,0 +1,20 @@
+{
+  "name": "email-parser",
+  "version": "1.0.0",
+  "description": "Parses doctor appointment request emails and extracts structured data",
+  "author": "IMSS Lab Bot Team",
+  "license": "MIT",
+  "main": "index.js",
+  "entryPoint": "parseAppointmentRequest",
+  "triggers": [
+    {
+      "type": "email",
+      "subject_pattern": ".*[Aa]ppointment.*|[Rr]equest.*",
+      "from_pattern": ".*@imss.*|.*@clinic.*"
+    }
+  ],
+  "config": {
+    "curp_regex": "^[A-Z]{4}[0-9]{6}[HM][A-Z]{2}[B-DF-HJ-NP-TV-Z]{3}[0-9A-Z]$",
+    "date_formats": ["YYYY-MM-DD", "DD/MM/YYYY"]
+  }
+}

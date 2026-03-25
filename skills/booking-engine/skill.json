@@ -1,0 +1,25 @@
+{
+  "name": "booking-engine",
+  "version": "1.0.0",
+  "description": "Coordinates the full appointment booking flow with atomic transactions",
+  "author": "IMSS Lab Bot Team",
+  "license": "MIT",
+  "main": "index.js",
+  "entryPoint": "processBookingRequest",
+  "dependencies": [
+    "email-parser",
+    "slot-manager"
+  ],
+  "triggers": [
+    {
+      "type": "skill",
+      "skill_name": "email-parser",
+      "action": "parse_complete"
+    }
+  ],
+  "config": {
+    "db_path": "~/Developer/crescendo-labs/data/sqlite.db",
+    "max_booking_days": 7,
+    "transaction_timeout_ms": 15000
+  }
+}

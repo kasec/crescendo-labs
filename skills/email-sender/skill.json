@@ -1,0 +1,28 @@
+{
+  "name": "email-sender",
+  "version": "1.0.0",
+  "description": "Sends confirmation and error emails via Gmail API",
+  "author": "IMSS Lab Bot Team",
+  "license": "MIT",
+  "main": "index.js",
+  "entryPoint": "sendEmail",
+  "triggers": [
+    {
+      "type": "skill",
+      "skill_name": "booking-engine",
+      "action": "SEND_CONFIRMATION_EMAIL"
+    },
+    {
+      "type": "skill",
+      "skill_name": "booking-engine",
+      "action": "SEND_EMAIL"
+    }
+  ],
+  "config": {
+    "service_account": "lab-bot-{yourdomain}@gmail.com",
+    "credentials_file": "~/.openclaw/credentials.json",
+    "max_retries": 3,
+    "backoff_schedule": [5, 10, 15],
+    "rate_limit_delay_ms": 1000
+  }
+}
