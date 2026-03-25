@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Resumen Ejecutivo: IMSS Lab Appointment Scheduling</title>
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#005db6",
+                        "on-primary": "#f6f7ff",
+                        "background": "#f8f9fa",
+                        "surface": "#ffffff",
+                        "on-surface": "#2b3437",
+                        "outline": "#737c7f",
+                        "secondary": "#536073",
+                        "surface-container": "#eaeff1",
+                        "primary-container": "#d6e3ff",
+                        "on-primary-container": "#00519f",
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-background font-body selection:bg-primary-container min-h-screen flex flex-col justify-center items-center p-4">
+    <div class="max-w-5xl w-full bg-surface shadow-xl rounded-xl overflow-hidden border border-surface-container">
+        <!-- 1. Datos Básicos (Header) -->
+        <header class="bg-primary p-8 text-on-primary">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                    <span
+                        class="inline-block px-3 py-1 bg-white/20 rounded-full text-[10px] font-bold uppercase tracking-widest mb-3">Resumen
+                        Ejecutivo Técnico</span>
+                    <h1 class="text-3xl md:text-4xl font-headline font-extrabold tracking-tight">IMSS Lab Appointment
+                        Scheduling</h1>
+                    <p class="mt-2 flex items-center gap-2 text-sm font-medium opacity-90">
+                        <span class="material-symbols-outlined text-sm">health_and_safety</span>
+                        Vertical: <span class="font-bold">HealthTech</span>
+                    </p>
+                </div>
+                <div class="flex flex-col items-end">
+                    <div class="flex items-center gap-3 bg-black/10 p-3 rounded-lg border border-white/10">
+                        <div class="flex -space-x-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-white/20 border-2 border-primary flex items-center justify-center text-[10px] font-bold">
+                                JD</div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-white/20 border-2 border-primary flex items-center justify-center text-[10px] font-bold">
+                                AM</div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-white border-2 border-primary flex items-center justify-center text-[10px] font-bold text-primary">
+                                +2</div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-[10px] font-bold uppercase tracking-wider opacity-70 leading-none mb-1">
+                                Equipo</p>
+                            <p class="text-sm font-bold leading-none">Crescendo Labs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- 2. Problema y Solución -->
+            <section class="space-y-4">
+                <div class="flex items-center gap-2 text-primary">
+                    <span class="material-symbols-outlined font-bold">problem</span>
+                    <h2 class="font-headline font-extrabold text-xl uppercase tracking-tight">Problema y Solución</h2>
+                </div>
+                <div class="bg-primary-container/30 p-6 rounded-xl border border-primary-container">
+                    <p class="text-on-surface leading-relaxed text-lg font-medium italic">
+                        "El agendamiento manual de laboratorios en el IMSS satura el sistema; nuestro agente OpenClaw
+                        automatiza las citas vía email, validando disponibilidad en tiempo real y notificando al
+                        instante."
+                    </p>
+                </div>
+            </section>
+            <!-- 4. Métricas Clave -->
+            <section class="space-y-4">
+                <div class="flex items-center gap-2 text-primary">
+                    <span class="material-symbols-outlined font-bold">query_stats</span>
+                    <h2 class="font-headline font-extrabold text-xl uppercase tracking-tight">Métricas Clave</h2>
+                </div>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="flex items-start gap-4 p-4 bg-background rounded-lg border border-surface-container">
+                        <div class="p-2 bg-primary rounded-lg text-on-primary">
+                            <span class="material-symbols-outlined text-xl">token</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-sm text-on-surface">Optimización de Tokens</h3>
+                            <p class="text-xs text-secondary mt-1">Uso de prompts ligeros y herramientas específicas
+                                para reducir consumo.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-background rounded-lg border border-surface-container">
+                        <div class="p-2 bg-primary rounded-lg text-on-primary">
+                            <span class="material-symbols-outlined text-xl">gpp_maybe</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-sm text-on-surface">Barreras de Seguridad (Guardrails)</h3>
+                            <p class="text-xs text-secondary mt-1">Limitación de tasa (rate limiting) y validación
+                                estricta de lógica de citas para evitar sobrecupo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 3. Arquitectura OpenClaw (Full Width in Grid or Column Span) -->
+            <section class="md:col-span-2 space-y-4 pt-4 border-t border-surface-container">
+                <div class="flex items-center gap-2 text-primary">
+                    <span class="material-symbols-outlined font-bold">account_tree</span>
+                    <h2 class="font-headline font-extrabold text-xl uppercase tracking-tight">Arquitectura OpenClaw</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div
+                        class="p-5 border border-surface-container rounded-xl hover:shadow-md transition-shadow duration-200">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="material-symbols-outlined text-primary">database</span>
+                            <h3 class="font-headline font-bold text-sm">Gestión de Estado</h3>
+                        </div>
+                        <p class="text-sm text-secondary leading-relaxed">Seguimiento persistente en SQLite para citas y
+                            capacidad de laboratorio.</p>
+                    </div>
+                    <div
+                        class="p-5 border border-surface-container rounded-xl hover:shadow-md transition-shadow duration-200">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="material-symbols-outlined text-primary">mail</span>
+                            <h3 class="font-headline font-bold text-sm">Llamado de Herramientas</h3>
+                        </div>
+                        <p class="text-sm text-secondary leading-relaxed">Integración con Gmail API para comunicación
+                            bidireccional médico/paciente.</p>
+                    </div>
+                    <div
+                        class="p-5 border border-surface-container rounded-xl hover:shadow-md transition-shadow duration-200">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="material-symbols-outlined text-primary">psychology</span>
+                            <h3 class="font-headline font-bold text-sm">Ciclos de Razonamiento</h3>
+                        </div>
+                        <p class="text-sm text-secondary leading-relaxed">Bucles de validación interna para asegurar
+                            disponibilidad antes de la confirmación.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="bg-background px-8 py-4 border-t border-surface-container flex justify-between items-center">
+            <span class="text-[10px] font-bold text-outline uppercase tracking-widest">Confidencial • OpenClaw
+                HealthTech POC</span>
+            <span class="text-[10px] font-bold text-outline uppercase tracking-widest">© 2026 Crescendo Labs</span>
+        </footer>
+    </div>
+</body>
+
+</html>
