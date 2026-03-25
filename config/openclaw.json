@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.23-2"
+  },
+  "gateway": {
+    "mode": "local",
+    "bind": "auto",
+    "auth": {
+      "mode": "token"
+    },
+    "controlUi": {
+      "dangerouslyAllowHostHeaderOriginFallback": true
+    }
+  }
+}

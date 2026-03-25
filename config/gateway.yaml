@@ -1,0 +1,125 @@
+
+gateway:
+  port: 18789
+  host: 0.0.0.0
+  health_check: true
+
+lanes:
+  # Email processing lane - serialized to prevent race conditions
+  email-processing:
+    type: serialized
+    max_concurrent: 1
+    queue_size: 100
+    timeout_ms: 30000
+    retry_on_failure: true
+    max_retries: 3
+
+  # Slot booking lane - critical section for atomic operations
+  slot-booking:
+    type: serialized
+    max_concurrent: 1
+    queue_size: 50
+    timeout_ms: 15000
+    retry_on_failure: true
+    max_retries: 2
+
+  # Booking lane - full booking flow processing (serialized)
+  booking:
+    type: serialized
+    max_concurrent: 1
+    queue_size: 100
+    timeout_ms: 45000
+    retry_on_failure: true
+    max_retries: 2
+
+  # Notification lane - email sending (can be parallel)
+  notification:
+    type: parallel
+    max_concurrent: 3
+    queue_size: 500
+    timeout_ms: 30000
+    retry_on_failure: true
+    max_retries: 3
+
+routing:
+  rules:
+    # Route appointment request emails through booking lane
+    - trigger:
+        type: email
+        subject_pattern: ".*[Aa]ppointment.*"
+      lane: booking
+      skills:
+        - email-parser
+        - slot-manager
+        - booking-engine
+
+    # Route booking engine output to email sender
+    - trigger:
+        type: skill
+        skill_name: booking-engine
+        action: SEND_CONFIRMATION_EMAIL
+      lane: notification
+      skills:
+        - email-sender
+
+    - trigger:
+        type: skill
+        skill_name: booking-engine
+        action: SEND_EMAIL
+      lane: notification
+      skills:
+        - email-sender
+
+    # Route slot operations through booking lane
+    - trigger:
+        type: skill
+        skill_name: slot-manager
+        action: reserve
+      lane: slot-booking
+      skills:
+        - slot-manager
+
+skills:
+  enabled:
+    - email-parser
+    - slot-manager
+    - booking-engine
+    - email-sender
+
+  # Skill loading (lazy loading for safety)
+  loading: lazy
+
+  # Load order for dependencies
+  load_order:
+    - email-parser
+    - slot-manager
+    - booking-engine
+    - email-sender
+
+  # NO ClawHub skills (security policy)
+  clawhub_enabled: false
+
+gmail:
+  service_account: lab-bot-{yourdomain}@gmail.com
+  scopes:
+    - gmail.readonly
+    - gmail.send
+  credentials_file: /home/node/.openclaw/credentials.json
+  polling_interval: 90  # seconds
+  thread_resolution: true
+
+rate_limiting:
+  max_retries: 3
+  delays: [5, 10, 15]
+
+logging:
+  level: info
+  format: json
+  output:
+    - file: ~/.openclaw/logs/gateway.log
+    - console
+
+  # Audit logging
+  audit:
+    enabled: true
+    log_file: ~/.openclaw/logs/audit.log

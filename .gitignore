@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment / Secrets
+.env
+credentials.json
+
+# Docker
+.openclaw/identity/
+.openclaw/logs/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System
+.DS_Store
+Thumbs.db
+
+# SQLite temp files
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm

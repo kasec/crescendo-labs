@@ -1,0 +1,37 @@
+services:
+  openclaw-gateway:
+    build: .
+    image: openclaw-gateway:latest
+    container_name: openclaw-gateway
+    restart: unless-stopped
+    ports:
+      - "18789:18789"
+    environment:
+      # These will be pulled from your .env file
+      - GMAIL_SERVICE_ACCOUNT=${GMAIL_SERVICE_ACCOUNT}
+      - GMAIL_CREDENTIALS_JSON=${GMAIL_CREDENTIALS_JSON}
+      - OPENCLAW_GATEWAY_TOKEN=${OPENCLAW_GATEWAY_TOKEN}
+    volumes:
+      # Data persistence
+      - ./data:/home/node/app/data:rw
+      - ./skills:/home/node/app/skills:ro # Skills can be read-only in production
+      - ./config/openclaw.json:/home/node/.openclaw/openclaw.json:ro
+      - ./config/gateway.yaml:/home/node/.openclaw/gateway.yaml:ro
+      - ./credentials.json:/home/node/.openclaw/credentials.json:ro
+      - ./.openclaw/identity:/home/node/.openclaw/identity:rw
+      - ./.openclaw/logs:/home/node/.openclaw/logs:rw
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    # In a real production environment, you might want read_only: true
+    # with specific tmpfs mounts, but for this POC we'll keep it simple first
+    # to avoid volume permission headaches.
+    # read_only: true
+    # tmpfs:
+    #   - /tmp
+    #   - /run
+
+volumes:
+  data:
+  .openclaw:

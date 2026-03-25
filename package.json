@@ -1,0 +1,9 @@
+{
+  "name": "crescendo-labs-poc",
+  "version": "1.0.0",
+  "description": "IMSS Lab Appointment Scheduling POC",
+  "main": "index.js",
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  }
+}
